@@ -1,0 +1,15 @@
+<% @works.issues.edges.each do |work|%>
+  <li class="list-group-item">
+  	<%= work.node.body%>
+  	<% if work.node.body == nil %>
+	  <p> BODY NULL </p>
+	<% else %>
+  		<p><%= work.node.body%></p>
+  	<% end %>  
+
+  </li>
+  <li class="disabled-none"><%= work.cursor%></li>
+<% end %>
+<% if @works.issues.page_info.has_next_page == false %>
+	<li class="disabled-none"><%= false %></li>
+<% end %>  

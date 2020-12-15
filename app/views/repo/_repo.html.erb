@@ -1,0 +1,60 @@
+<% if @works == nil %>
+  <h1> Not data </h1>
+<% else %>
+
+	<% @works.edges.each do |work|%>
+	  <tr>
+	  	  <td class="" hidden="true" id="repo-cursor"><p><%= work.cursor%></p></td>
+	  	  <td style="width: 10%" > <p><%= work.node.stargazers.total_count%></p></td>
+	      <td style="width: 10%" > <p><%= work.node.name%></p></td>
+	      <td style="width: 20%" >
+	      	<% if work.node.stargazers.total_count != 0 %>
+				<ul id="list-stargazers-<%= work.node.name%>" class="list-group list-stargazers-<%= work.node.name%>">
+
+				</ul>
+			     <a class="js-load-stargazers" href="<%= repo_stargazers_path(search:@search, name: work.node.name) %>">
+		          <button id="btn-load-stargazers-<%= work.node.name%>" class=" btn btn-primary btn-sm">
+		           Load Stargazers
+		             <span class="octicon octicon-sync spinner"></span>
+		          </button>
+		        </a>
+
+		        <a id="btn-load-more-stargazers-<%= work.node.name%>" class="js-load-more-stargazers disabled-none" href="<%= repo_more_stargazers_path(search:@search, name: work.node.name, after: "") %>">
+		          <button  class=" btn btn-primary btn-sm">
+		           Load More Stargazers
+		             <span class="octicon octicon-sync spinner"></span>
+		          </button>
+		        </a>
+	        <% end %>  
+
+	      </td>
+	      <td style="width: 60%">
+	      	<% if work.node.issues.total_count != 0 %>
+	      		<ul id="list-issues-<%= work.node.name%>" class="list-group list-issues-<%= work.node.name%>">
+
+				</ul>
+			     <a class="js-load-issues" href="<%= repo_issues_path(search:@search, name: work.node.name) %>">
+		          <button id="btn-load-issues-<%= work.node.name%>" class=" btn btn-primary btn-sm">
+		           Load Issues
+		             <span class="octicon octicon-sync spinner"></span>
+		          </button>
+		        </a>
+
+		        <a id="btn-load-more-issues-<%= work.node.name%>" class="js-load-more-issues disabled-none" 
+		        	href="<%= repo_more_issues_path(search:@search, name: work.node.name, after: "") %>">
+		          <button  class=" btn btn-primary btn-sm">
+		           Load More Issue
+		             <span class="octicon octicon-sync spinner"></span>
+		          </button>
+		        </a>
+	      	<% end %>  
+	    </tr>
+	<% end %>
+<% end %>
+
+<% if  @works != nil && !@works.page_info.has_next_page %>
+  <p id="load-more-repo" class="disabled-none">false</p>
+<% end %>
+
+
+

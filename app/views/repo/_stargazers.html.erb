@@ -1,0 +1,14 @@
+<% @works.stargazers.edges.each do |work|%>
+  <li class="list-group-item">
+  	<% if work.node.name == nil %>
+	  <p> NAME NULL </p>
+	<% else %>
+  		<p><%= work.node.name%></p>
+  	<% end %>  
+
+  </li>
+  <li class="disabled-none"><%= work.cursor%></li>
+<% end %>
+<% if @works.stargazers.page_info.has_next_page == false %>
+	<li class="disabled-none"><%= false %></li>
+<% end %>  
