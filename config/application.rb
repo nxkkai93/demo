@@ -25,7 +25,7 @@ module Demo
     
   end
 
-  AUTH_HEADER = "Bearer ae2fd44f823f8f89c08a0b089102de6f3e78de7f"
+  AUTH_HEADER = "Bearer 456cd61a8eeb237f32a520a55caa4b4fcc7340be"
 
 	  HTTP = GraphQL::Client::HTTP.new("https://api.github.com/graphql") do 
 	  #上記には、接続したいAPIのエンドポイントURLを記入
