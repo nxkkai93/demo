@@ -60,3 +60,5 @@ gem 'graphql-client'
 
 gem 'omniauth'
 gem 'omniauth-github'
+
+gem 'pg'
