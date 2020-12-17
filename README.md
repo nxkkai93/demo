@@ -13,9 +13,10 @@ Login by account Github
 
 Route:
 User info: /pages/private
+
 Repo: repo/index
 
 Something page "/pages/private" error because Personal access tokens of github auto deleted.
-So can access page repo/index please.
+So you can access page repo/index please.
 
 
